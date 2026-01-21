@@ -8,7 +8,9 @@
 
 This RFC defines "Normal Async" as a Rust project priority: making async Rust feel like a natural extension of regular Rust rather than a separate, harder dialect. The north star is **"just add async"** - developers targeting typical server and application environments should be able to write async Rust without requiring arcane knowledge, adapter crates, or a fundamentally different mental model than synchronous Rust.
 
-This north star is not explicitly aimed at async Rust in embedded or kernel environments. That doesn't mean we can ignore those use cases - they're important and we need to ensure that whatever work we do can scale to them. But server and application environments are the most common async use case, and some of these design challenges are large enough that we need to focus on concrete subproblems rather than trying to solve everything at once.
+The async ecosystem has been blocked for years waiting on language features. Key libraries like Tower remain on 0.x because they can't express the APIs they need. This RFC charts a path forward: a focused set of language improvements that unblock the ecosystem while laying groundwork for more advanced use cases.
+
+This North Star is focused on async servers that run on typical server hardware. It is explicitly *not* aimed at async Rust in embedded or kernel environments. That doesn't mean we can ignore those use cases - they're important and we need to ensure that whatever work we do can scale to them. But server and application environments are the most common async use case, and some of these design challenges are large enough that we need to focus on concrete subproblems rather than trying to solve everything at once.
 
 # Motivation
 [motivation]: #motivation
